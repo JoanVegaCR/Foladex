@@ -1,0 +1,170 @@
+/* =========================================
+   1. ESTILOS GENERALES Y FUENTES
+   ========================================= */
+   body { 
+      background-color: #050505; 
+      background-image: radial-gradient(circle at center, #1a1a1a 0%, #050505 80%); 
+      color: white; 
+      font-family: 'Rajdhani', sans-serif; 
+      overflow-x: hidden; 
+      min-height: 100vh;
+  }
+  .font-year { font-family: 'Russo One', sans-serif; }
+  .font-gaming { font-family: 'Orbitron', sans-serif; }
+  .text-gold-metallic { background: linear-gradient(to bottom, #fffebb 0%, #ffc400 50%, #b38500 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 2px 0px rgba(0,0,0,0.5)); }
+  
+  /* =========================================
+     2. ESTILOS DE TARJETAS (OLIMPO)
+     ========================================= */
+  .holo-card { position: relative; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; transform-style: preserve-3d; cursor: pointer; }
+  .holo-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2); z-index: 10; border-color: rgba(255, 215, 0, 0.6); }
+  
+  /* Panel Técnico (Donde estaban los errores) */
+  .tech-panel { 
+      background: rgba(10, 15, 20, 0.85); 
+      backdrop-filter: blur(10px); 
+      border-left: 4px solid #00f3ff; 
+      border-top: 1px solid rgba(0, 243, 255, 0.2); 
+      border-right: 1px solid rgba(0, 243, 255, 0.1); 
+      border-bottom: 1px solid rgba(0, 243, 255, 0.1); 
+      cursor: pointer; 
+      transition: all 0.3s; 
+      overflow: hidden; /* Importante para el número de fondo */
+  }
+  .tech-panel:hover { background: rgba(0, 243, 255, 0.1); box-shadow: 0 0 20px rgba(0, 243, 255, 0.2); }
+  
+  /* Corrección de Alineación del Rank (#1, #16) */
+  .tech-bg-rank {
+      position: absolute;
+      top: -10px;
+      right: 10px; /* Lo muevo a la derecha para que no estorbe la foto */
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 900;
+      font-size: 4rem;
+      color: rgba(255, 255, 255, 0.05);
+      z-index: 0;
+      pointer-events: none;
+      line-height: 1;
+  }
+  
+  .gold-panel { background: linear-gradient(135deg, rgba(30, 25, 10, 0.95), rgba(10, 8, 0, 0.98)); border: 1px solid rgba(255, 215, 0, 0.3); box-shadow: 0 0 15px rgba(255, 166, 0, 0.1); }
+  
+  /* =========================================
+     3. ESTADÍSTICAS Y TIPOS (Corregido)
+     ========================================= */
+  .stat-row { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; position: relative; z-index: 2; }
+  .stat-label { font-size: 10px; font-weight: bold; color: #888; width: 25px; }
+  .stat-track { 
+      flex-grow: 1; 
+      height: 6px; 
+      background: rgba(255,255,255,0.1); 
+      border-radius: 3px; 
+      overflow: hidden; 
+  }
+  .stat-fill { 
+      height: 100%; 
+      border-radius: 3px; 
+      box-shadow: 0 0 5px currentColor; /* Brillo para que se vea más */
+  }
+  /* Colores de stats más brillantes */
+  .hp { background: #ff5959; color: #ff5959; } 
+  .atk { background: #f5ac78; color: #f5ac78; } 
+  .spe { background: #fa92b2; color: #fa92b2; } /* Speed */
+  
+  /* Tipos */
+  .type-badge { font-size: 9px; text-transform: uppercase; font-weight: bold; padding: 2px 6px; border-radius: 4px; letter-spacing: 1px; margin-right: 4px; display: inline-block;}
+  .type-fire { background: #F08030; color: white; } .type-water { background: #6890F0; color: white; } .type-grass { background: #78C850; color: white; } .type-electric { background: #F8D030; color: black; } .type-ground { background: #E0C068; color: black; } .type-flying { background: #A890F0; color: white; } .type-ghost { background: #705898; color: white; } .type-dark { background: #705848; color: white; } .type-steel { background: #B8B8D0; color: black; } .type-fairy { background: #EE99AC; color: black; } .type-fighting { background: #C03028; color: white; } .type-psychic { background: #F85888; color: white; } .type-ice { background: #98D8D8; color: black; } .type-dragon { background: #7038F8; color: white; } .type-poison { background: #A040A0; color: white; } .type-normal { background: #A8A878; color: black; }
+  
+  /* =========================================
+     4. MODALES, FOOTER Y EXTRAS
+     ========================================= */
+  /* Estrellas */
+  .stars { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1; }
+  .star { position: absolute; background: white; border-radius: 50%; animation: twinkle var(--duration) infinite ease-in-out; }
+  @keyframes twinkle { 0%, 100% { opacity: 0.2; transform: scale(0.5); } 50% { opacity: 0.8; transform: scale(1); } }
+  
+  /* Footer */
+  .dev-footer { position: fixed; bottom: 0; left: 0; width: 100%; padding: 15px 30px; background: linear-gradient(to top, #000000 90%, transparent); display: flex; justify-content: space-between; align-items: end; z-index: 100; pointer-events: none; }
+  .dev-signature { pointer-events: auto; font-family: 'Rajdhani', sans-serif; font-size: 14px; color: rgba(255, 255, 255, 0.5); display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.05); padding: 8px 20px; border-radius: 30px; border: 1px solid rgba(255, 255, 255, 0.1); }
+  .feedback-btn { pointer-events: auto; background: rgba(0, 243, 255, 0.1); border: 1px solid rgba(0, 243, 255, 0.3); color: #00f3ff; font-family: 'Orbitron', sans-serif; font-size: 12px; font-weight: bold; padding: 10px 24px; border-radius: 12px; cursor: pointer; transition: all 0.3s; }
+  
+  /* Modal Ficha Técnica */
+  #poke-modal { position: fixed; inset: 0; z-index: 500; display: flex; justify-content: center; align-items: center; background: rgba(0, 0, 0, 0.95); backdrop-filter: blur(10px); opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+  #poke-modal.active { opacity: 1; pointer-events: auto; }
+  .poke-modal-card { display: flex; flex-direction: column; width: 95%; max-width: 900px; height: auto; background: #0f0f0f; border: 1px solid #333; border-radius: 20px; overflow: hidden; box-shadow: 0 0 50px rgba(0,0,0,0.8); transform: scale(0.95); transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
+  @media (min-width: 768px) { .poke-modal-card { flex-direction: row; min-height: 400px; } }
+  #poke-modal.active .poke-modal-card { transform: scale(1); }
+  .modal-left { flex: 1; background: radial-gradient(circle, #2a2a2a 0%, #000 100%); display: flex; justify-content: center; align-items: center; padding: 40px; border-right: 1px solid #333; position: relative; }
+  .modal-right { flex: 1.5; padding: 40px; display: flex; flex-direction: column; overflow-y: auto; position: relative; background: linear-gradient(135deg, #111, #050505); }
+  
+  /* Modal Feedback */
+  #contact-modal { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.9); z-index: 600; display: flex; justify-content: center; align-items: center; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+  #contact-modal.active { opacity: 1; pointer-events: auto; }
+  .modal-box-feedback { width: 90%; max-width: 600px; background: #111; border: 1px solid #333; padding: 40px; border-radius: 20px; }
+  .input-field { width: 100%; background: #222; border: 1px solid #444; color: white; padding: 10px; border-radius: 8px; margin-top: 5px; outline: none; }
+  .input-field:focus { border-color: #00f3ff; }
+  
+  /* Timeline (Mantenido) */
+  .timeline-line { position: absolute; top: 50%; left: 5%; right: 5%; height: 2px; background: linear-gradient(to right, transparent, #00f3ff, #7000ff, #00f3ff, transparent); transform: translateY(-50%); box-shadow: 0 0 15px rgba(0, 243, 255, 0.3); z-index: 0; width: 0%; }
+  .timeline-node { width: 12px; height: 12px; background: #050505; border: 2px solid #00f3ff; border-radius: 50%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0); z-index: 10; transition: all 0.3s ease; }
+  .timeline-item:hover .timeline-node { background: #00f3ff; box-shadow: 0 0 25px #00f3ff; transform: translate(-50%, -50%) scale(1.8); }
+  .year-text { font-size: 2.5vw; color: rgba(255, 255, 255, 0.3); transition: all 0.3s ease; cursor: pointer; opacity: 0; transform: translateY(20px); }
+  .timeline-item:hover .year-text { color: #fff; text-shadow: 0 0 15px rgba(0, 243, 255, 0.8); transform: scale(1.1); }
+  .connector { position: absolute; left: 50%; width: 1px; height: 0; background: #00f3ff; transition: height 0.3s ease; opacity: 0.5; }
+  .item-top .connector { bottom: 0; } .item-top:hover .connector { height: 40px; }
+  .item-bottom .connector { top: 0; } .item-bottom:hover .connector { height: 40px; }
+  .series-preview { opacity: 0; transition: opacity 0.3s ease, transform 0.3s ease; pointer-events: none; width: 100%; position: absolute; left: 0; transform: translateY(10px); }
+  .timeline-item:hover .series-preview { opacity: 1; transform: translateY(0); }
+  #search-overlay { transition: opacity 0.3s ease; pointer-events: none; opacity: 0; }
+  #search-overlay.active { pointer-events: auto; opacity: 1; }
+
+/* --- CORRECCIÓN NÚMEROS DE FONDO (TARJETAS OFICIALES) --- */
+.tech-bg-rank {
+   position: absolute;
+   top: -15px;       /* Subimos un poco para que no corte */
+   left: 10px;       /* Alineado a la izquierda */
+   font-family: 'Orbitron', sans-serif;
+   font-weight: 900;
+   font-size: 5rem;  /* Tamaño grande */
+   color: rgba(255, 255, 255, 0.08); /* Más visible */
+   z-index: 0;
+   pointer-events: none;
+   line-height: 1;
+   text-shadow: 0 0 20px rgba(0, 243, 255, 0.1); /* Brillo sutil */
+}
+
+/* --- ESTILO UNIFICADO PARA LOS KILLERS (EXTERMINADORES) --- */
+.killer-card {
+   position: relative;
+   background: linear-gradient(145deg, #1a0505, #000);
+   border: 1px solid #ef4444; /* Borde rojo por defecto */
+   border-radius: 15px;
+   padding: 15px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   transition: all 0.3s ease;
+   cursor: pointer;
+   box-shadow: 0 0 15px rgba(239, 68, 68, 0.2);
+}
+
+.killer-card:hover {
+   transform: translateY(-10px) scale(1.05);
+   box-shadow: 0 0 30px rgba(239, 68, 68, 0.6);
+   border-color: #ff0000;
+   z-index: 10;
+}
+
+.killer-rank-badge {
+   position: absolute;
+   top: -12px;
+   background: #991b1b; /* Rojo oscuro */
+   color: white;
+   font-family: 'Orbitron', sans-serif;
+   font-weight: bold;
+   font-size: 0.9rem;
+   padding: 4px 10px;
+   border-radius: 20px;
+   border: 2px solid #ef4444; /* Borde rojo brillante */
+   box-shadow: 0 0 10px #ef4444;
+}

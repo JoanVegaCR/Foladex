@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalles del Año - FolaDex</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;900&family=Rajdhani:wght@500;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="pb-20">
+    <div class="stars" id="star-container"></div>
+
+    <a href="index.html" class="fixed top-8 left-8 text-cyan-400 hover:text-white font-gaming text-sm z-50 flex items-center gap-3 backdrop-blur-md bg-black/30 px-4 py-2 rounded-full border border-cyan-500/30 transition-all hover:scale-105 group">
+        <span class="text-xl group-hover:-translate-x-1 transition-transform">‹</span> VOLVER AL TIMELINE
+    </a>
+
+    <header id="hero-banner" class="relative h-[50vh] flex items-center justify-center overflow-hidden bg-cover bg-center">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/80 to-[#050505]"></div>
+        <div class="relative z-10 text-center flex flex-col items-center" data-aos="zoom-out">
+            <h1 id="year-title" class="text-[10rem] md:text-[14rem] font-gaming font-black text-transparent bg-clip-text bg-gradient-to-b from-white/20 to-transparent leading-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"></h1>
+            <h2 class="text-4xl md:text-5xl text-white font-gaming mb-8 drop-shadow-[0_0_20px_rgba(0,243,255,0.8)] tracking-widest">RESUMEN ANUAL</h2>
+            <div class="flex flex-col items-center group cursor-default">
+                <div class="pie-chart mb-4 transition-transform group-hover:scale-110" id="winrate-chart" style="--p: 0%"><span class="pie-text text-cyan-300" id="winrate-text">0%</span></div>
+                <p class="text-sm text-cyan-400 tracking-[0.3em] uppercase font-bold">Winrate General</p>
+            </div>
+        </div>
+    </header>
+
+    <div id="content" class="max-w-7xl mx-auto px-6 relative z-20 -mt-20">
+        <section class="mb-32">
+            <div class="text-center mb-12" data-aos="fade-up">
+                 <h3 class="text-3xl font-gaming text-yellow-400 tracking-[0.2em] inline-flex items-center gap-4"><span class="h-[2px] w-12 bg-yellow-400/50"></span> HALL OF FAME <span class="h-[2px] w-12 bg-yellow-400/50"></span></h3>
+            </div>
+            <div id="top3-podium" class="flex flex-col md:flex-row items-center md:items-end justify-center gap-8 md:gap-4 h-auto md:h-[400px]"></div>
+        </section>
+
+        <section class="mb-32 glass-panel p-8 rounded-3xl border-t border-b border-cyan-500/20 bg-black/40" data-aos="fade-up" data-tilt data-tilt-max="2">
+            <div class="flex items-center justify-between mb-12"><h3 class="text-3xl font-gaming text-white tracking-widest">BATTLE <span class="text-cyan-400">REPORT</span></h3><div class="text-xl font-gaming text-white/50 italic">VS SCREEN</div></div>
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-8 items-center">
+                <div class="md:col-span-2 text-right">
+                    <h4 class="font-gaming text-3xl text-blue-400 mb-2 tracking-wider">FOLA</h4>
+                    <div id="stats-fola-rate" class="text-6xl font-black text-white mb-2">0%</div>
+                    <div class="hud-bar-bg mb-2 relative"><div id="fola-bar" class="hud-bar-fill bg-gradient-to-r from-blue-600 to-blue-400" style="width: 0%"></div></div>
+                    <p id="stats-fola-record" class="text-blue-200/70 font-bold text-lg tracking-widest">0W - 0L</p>
+                </div>
+                <div class="hidden md:flex justify-center font-gaming text-6xl text-white/20 font-black italic md:col-span-1">VS</div>
+                <div class="md:col-span-2 text-left">
+                     <h4 class="font-gaming text-3xl text-pink-400 mb-2 tracking-wider">FOLANA</h4>
+                    <div id="stats-folana-rate" class="text-6xl font-black text-white mb-2">0%</div>
+                    <div class="hud-bar-bg mb-2 relative"><div id="folana-bar" class="hud-bar-fill bg-gradient-to-r from-pink-600 to-pink-400" style="width: 0%"></div></div>
+                    <p id="stats-folana-record" class="text-pink-200/70 font-bold text-lg tracking-widest">0W - 0L</p>
+                </div>
+            </div>
+        </section>
+
+        <section data-aos="fade-up">
+            <h3 class="text-2xl font-gaming mb-8 text-white tracking-[0.2em] border-l-4 border-cyan-400 pl-4">HISTORIAL DE SERIES</h3>
+            <div id="series-carousel" class="flex gap-6 overflow-x-auto pb-8 scrollbar-hide snap-x"></div>
+        </section>
+    </div>
+
+    <footer class="dev-footer">
+        <div class="dev-signature">
+            <span>© 2025 FolaDex</span><span class="w-[1px] h-3 bg-white/20"></span>
+            <span>Dev by <strong class="text-cyan-400">Vegga</strong></span>
+            <div class="flex gap-2 ml-2"><a href="#" class="opacity-50 hover:opacity-100 transition-opacity hover:text-blue-400">🐦</a><a href="#" class="opacity-50 hover:opacity-100 transition-opacity hover:text-purple-400">👾</a></div>
+        </div>
+        <button onclick="toggleModal()" class="feedback-btn"><span class="text-lg">📩</span> DEJAR UN COMENTARIO</button>
+    </footer>
+
+    <div id="contact-modal">
+        <div class="modal-box">
+            <div class="flex justify-between items-start mb-8">
+                <div><h3 class="text-4xl font-gaming text-white mb-2">BUZÓN DE <span class="text-cyan-400">IDEAS</span></h3><p class="text-gray-400 text-lg">Envía tu sugerencia directamente al desarrollador.</p></div>
+                <button onclick="toggleModal()" class="text-gray-500 hover:text-white text-4xl transition-transform hover:rotate-90">✕</button>
+            </div>
+            <form id="feedbackForm" onsubmit="sendFeedback(event)" class="space-y-6">
+                <div class="group">
+                    <label class="block text-sm text-cyan-400 font-bold mb-2 uppercase tracking-widest">¿Quién eres?</label>
+                    <input type="text" id="senderName" class="input-field text-xl p-4" placeholder="Tu Nickname..." required>
+                </div>
+                <div class="group">
+                    <label class="block text-sm text-cyan-400 font-bold mb-2 uppercase tracking-widest">Tu Comentario / Idea</label>
+                    <textarea id="senderMessage" rows="5" class="input-field text-xl p-4" placeholder="Escribe aquí tu mejora para la FolaDex..." required></textarea>
+                </div>
+                <button type="submit" id="submitBtn" class="w-full bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-bold py-5 rounded-xl font-gaming text-xl tracking-[0.2em] transition-all transform hover:scale-[1.02] shadow-[0_0_20px_rgba(0,243,255,0.3)] flex justify-center items-center gap-3"><span>ENVIAR COMENTARIO</span> 🚀</button>
+                <p id="formStatus" class="text-center text-sm mt-4 hidden"></p>
+            </form>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="year.js"></script>
+</body>
+</html>
